@@ -118,7 +118,7 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/5.1/howto/static-files/
 
 STATIC_URL = 'static/'
-
+STATICFILES_DIRS = ['static/']
 
 # MEDIA FILE
     # URL - every time  we upload image it will go to MEDIA directory

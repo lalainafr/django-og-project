@@ -3,4 +3,4 @@ from django.http import HttpResponse
 
 
 def home(request):
-    return HttpResponse('Bienvenu sur le site')
+    return render(request, 'ticket/index.html', {})
