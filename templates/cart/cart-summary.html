@@ -10,5 +10,51 @@
         </div>
     </div>
 </header>
-{% endblock header %} {% block content %} {% endblock content %}
+{% endblock header %} {% block content %}
+<div class="row justify-content-center">
+
+<div class="col-md-5">
+            <table class="table">
+                <thead>
+                    <tr class="text-center text-secondary">
+                        <th scope="col">#</th>
+                        <th scope="col">Name</th>
+                        <th scope="col">Description</th>
+                        <th scope="col">Price</th>
+                        <th scope="col">Image</th>
+                    </tr>
+                </thead>
+                {% for product in cart_products %}
+                <tbody>
+                    <tr>
+                        <td class="text-center">
+                            <small>{{product.id}} </small>
+                        </td>
+                        <td class="text-center">
+                            <small>{{product.name}} </small>
+                        </td>
+                        <td class="text-center">
+                            <small>{{product.Description | slice:":80"}} </small>
+                        </td>
+                        <td class="text-center">
+                            <small>{{product.price}} </small>
+                        </td>
+                        <td class="text-center">
+                            <img src="{{product.Image.url}}" style="height: 50px"></img>
+                        </td>
+
+                        <!--                         
+                        <button type="button" class="disabled btn btn-sm btn-danger rounded-4">
+                            <span class="badge badge-light">Checkout</span>
+                        </button>
+                    </tr> -->
+                    </tr>
+                </tbody>
+
+                {% endfor %}
+            </table>
+        </div>
+
+</div>
+{% endblock content %}
 <!-- Footer-->

@@ -4,9 +4,11 @@ from ticket.models import Product
 from django.http import JsonResponse  # send to json data 
 
 
-
 def cart_summary(request):
-    context = {}
+    # Get the cart
+    cart = Cart(request)
+    cart_products = cart.get_products
+    context = {'cart_products': cart_products}
     return render(request, 'cart/cart-summary.html', context)
 
 def cart_add(request):

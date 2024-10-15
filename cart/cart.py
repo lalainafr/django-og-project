@@ -1,3 +1,5 @@
+from ticket.models import Product
+
 class Cart():
     # initialise class
     def __init__(self, request):
@@ -38,3 +40,14 @@ class Cart():
     # get the length of the product quantity on the cart    
     def __len__(self):
         return len(self.cart)
+    
+    
+    # show products in the cart
+    def get_products(self):
+        # get Ids from the cart
+        product_ids = self.cart.keys()        
+        # use ids to lookup products in the db models
+        products = Product.objects.filter(id__in=product_ids)
+        return products
+    
+    
