@@ -34,3 +34,7 @@ class Cart():
         
         # apply sessiob modification
         self.session.modified = True
+    
+    # get the length of the product quantity on the cart    
+    def __len__(self):
+        return len(self.cart)
