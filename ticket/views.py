@@ -6,3 +6,8 @@ def home(request):
     products = Product.objects.all()
     context = {'products': products}
     return render(request, 'ticket/index.html', context )
+
+def product_details(request, pk):
+    product = Product.objects.get(pk=pk)
+    context = {'product': product}
+    return render(request, 'ticket/product-details.html', context )

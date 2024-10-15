@@ -1,0 +1,90 @@
+{% extends 'base.html' %} {% load static %} {% block header %}
+<!-- Header-->
+<header class="bg-secondary py-5">
+    <div class="container px-4 px-lg-5 my-5">
+        <div class="text-center text-white">
+            <h1 class="display-4 fw-bolder">Product details</h1>
+            <p class="lead fw-normal text-white-50 mb-0">
+                Information about the selected product
+            </p>
+        </div>
+    </div>
+</header>
+{% endblock header %} {% block content %}
+<!-- Section-->
+<section class="py-5">
+    <div class="container px-4 px-lg-5 mt-5">
+        <div
+            class="row gx-4 gx-lg-5 row-cols-2 row-cols-md-3 row-cols-xl-4 justify-content-center"
+        >
+            <div class="col-md-4 mb-5">
+                <div class="card h-100">
+                    <!-- Product image-->
+                    <img
+                        class="card-img-top"
+                        src="{{ product.Image.url }}"
+                        alt="..."
+                    />
+                </div>
+            </div>    
+            <div class="col-md-6 mb-5">
+                    <!-- Product details-->
+                <div class="card-body p-4">
+                    <div class="text-center">
+                        <!-- Product name-->
+                        <h5 class="fw-bolder">{{ product.name }}</h5>
+                        <!-- Product description-->
+                        $ {{ product.Description}}
+                        <br />
+                        <!-- Product price-->
+                        $ {{product.price}}
+                    </div>
+                </div>
+                <!-- Product actions-->
+                <div
+                    class="card-footer p-4 pt-0 border-top-0 bg-transparent"
+                >
+                    <div class="text-center">
+                        <button type="button" value="{{product.id }}" id='add-cart' "btn btn-outline-secondary mt-auto">Add to cart</>
+                    </div>
+                        <!-- Product actions-->
+                        <div
+                            class="card-footer p-4 pt-0 border-top-0 bg-transparent"
+                        ></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<script>
+// Check if button pressed
+$(document).on('click', "#add-cart", function(e){
+    e.preventDefault();
+    // AJAX : send stuff to the backend server without refreshing the web page
+    $.ajax({
+        type: 'POST',
+        url: '{% url "cart_add" %}',
+        data: {
+            product_id: $('#add-cart').val(),
+            // in the button to be clicked, value="{{product.id }}
+            csrfmiddlewaretoken: '{{ csrf_token }}',
+            action: 'post'
+        },
+        
+        // what to do after the data passe on the backend
+        success: function(json){
+            console.log(json)
+        },
+
+        error: function(xhr, errmsg, err){}
+    }); 
+        
+})
+
+</script>
+
+
+{% endblock content %}
+<!-- Footer-->

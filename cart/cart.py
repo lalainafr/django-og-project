@@ -17,4 +17,20 @@ class Cart():
         # -- > make sure cart is available on all pages on the site    
         self.cart = cart
         # + context-processors    
+    
+    def add(self, product):
+        product_id = str(product.id)
         
+        # Logic
+        if product_id in self.cart:
+            pass
+        else:
+            self.cart[product_id]={
+                'name': str(product.name),
+                'price': str(product.price),
+                'description': str(product.Description),
+                }
+            # update the cart in the session
+        
+        # apply sessiob modification
+        self.session.modified = True
