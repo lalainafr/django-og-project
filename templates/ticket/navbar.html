@@ -15,7 +15,10 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav me-auto mb-2 mb-lg-0 ms-lg-4">
                 <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href=""
+                    <a
+                        class="nav-link active"
+                        aria-current="page"
+                        href="{% url 'ticket' %}"
                         >Home</a
                     >
                 </li>
@@ -47,15 +50,17 @@
                 </li>
             </ul>
 
-            <button class="btn btn-outline-dark" type="submit">
-                <i class="bi-cart-fill me-1"></i>
-                Cart
-                <span
-                    class="badge bg-dark text-white ms-1 rounded-pill"
-                    id="cart_quantity"
-                    >{{cart|length}}</span
-                >
-            </button>
+            <a href="{% url 'cart_summary' %}">
+                <button class="btn btn-outline-dark" type="submit">
+                    <i class="bi-cart-fill me-1"></i>
+                    Cart
+                    <span
+                        class="badge bg-dark text-white ms-1 rounded-pill"
+                        id="cart_quantity"
+                        >{{cart|length}}</span
+                    >
+                </button>
+            </a>
         </div>
     </div>
 </nav>

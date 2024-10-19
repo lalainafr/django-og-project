@@ -13,7 +13,7 @@
 {% endblock header %} {% block content %}
 <div class="row justify-content-center">
 
-<div class="col-md-5">
+<div class="col-md-6 border shadow-lg p-4">
             <table class="table">
                 <thead>
                     <tr class="text-center text-secondary">
@@ -37,7 +37,7 @@
                             <small>{{product.Description | slice:":80"}} </small>
                         </td>
                         <td class="text-center">
-                            <small>{{product.price}} </small>
+                            <small>€ {{product.price}} </small>
                         </td>
                         <td class="text-center">
                             <img src="{{product.Image.url}}" style="height: 50px"></img>
