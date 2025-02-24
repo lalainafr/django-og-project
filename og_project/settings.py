@@ -39,7 +39,9 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'ticket',
-    'cart'
+    'cart',
+    'widget_tweaks',
+    
 ]
 
 MIDDLEWARE = [
@@ -124,8 +126,8 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/5.1/howto/static-files/
 
 STATIC_URL = 'static/'
-STATICFILES_DIRS = [os.path.join(BASE_DIR, 'staticfile')]
-STATIC_ROOT =  os.path.join(BASE_DIR, 'static')
+STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')]
+# STATIC_ROOT =  os.path.join(BASE_DIR, 'static')
 
 # MEDIA FILE
     # URL - every time  we upload image it will go to MEDIA directory
